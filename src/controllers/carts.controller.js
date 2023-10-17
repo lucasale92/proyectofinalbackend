@@ -1,5 +1,5 @@
 import { CartService } from '../services/carts.service.js';
-import { Logger } from '../utils/logger.utils.js';  
+import { logger } from '../utils/logger.utils.js';
 
 const Carts = new CartService();
 

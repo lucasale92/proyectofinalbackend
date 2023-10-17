@@ -30,7 +30,7 @@ const MONGO_PASS = process.env.MONGO_PASS;
 export async function connectMongo() {
   try {
     await connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASS}@ecommerce.36h98by.mongodb.net/ecommerce`);
-    logger.info('Conectadoa mongo');
+    logger.info('Conectado a mongo');
   } catch (error) {
     logger.error(error);
     throw 'No se puede conectar a la base de datos';

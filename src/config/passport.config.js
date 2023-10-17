@@ -5,7 +5,7 @@ import local from 'passport-local';
 import { UserModel } from '../DAO/models/users.model.js';
 import { createHash, isValidPassword } from '../utils.js';
 import { CartService } from '../services/carts.service.js';
-import { logger } from '../utils.js';
+import { logger } from '../utils/logger.utils.js';
 
 const LocalStrategy = local.Strategy;
 const cartService = new CartService();

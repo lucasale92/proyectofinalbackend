@@ -17,4 +17,3 @@ function putIntoCart(_id) {
     })
     .catch((err));
 }
-
