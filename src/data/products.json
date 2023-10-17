@@ -1,0 +1,81 @@
+[
+   {
+    "id": 0,
+    "title": "Sorrentinos de ricotta y nuez",
+    "description": "Relleno de ricotta condimentada (sal, pimienta) y nuez",
+    "price": 1000,
+    "code": "SRN01",
+    "stock": 20,
+    "status": true,
+    "category": "Pasta",
+    "thumbnails": []
+  
+    },
+    {     
+    "id":1, 
+    "status": true,
+    "title": "Ravioles de verdura",
+    "description": "Relleno de espinaca, cebolla rehogada, queso crema, queso rallado, ricota, pimienta y sal.",
+    "price": 1700,
+    "code": "RDV01",
+    "stock": 18,
+    "thumbnails": [],
+    "category": "Pasta"
+          
+    },
+    {
+      "id": 2,
+      "title": "Sorrentinos de salmón",
+      "description": "Salmon fueguino cocido al horno, cebolla de verdeo, sal, pimienta.",
+      "price": 2500,
+      "thumbnails": [],
+      "code": "SDS01",
+      "stock": 25,
+      "category": "Pasta",
+      "status": true
+    },
+    {
+      "id": 3,
+      "title": "Pizza de centolla",
+      "description": "Centolla fueguina precocida, cebolla de verdeo, queso y queso azul.",
+      "price":2300,
+      "thumbnails": [],
+      "code": "PDC01",
+      "stock": 5,
+      "category": "Pizza",
+      "status": true
+    },
+    {
+      "id": 4,
+      "title": "Pan casero",
+      "description": "Pan casero artesanal",
+      "price": 320,
+      "thumbnails": [],
+      "code": "PNC01",
+      "stock": 18,
+      "category": "Pan",
+      "status": true
+    },
+    {
+      "id": 5,
+      "title": "Ravioles de jamón y queso",
+      "description": "Jamón, queso, cebolla de verdeo, pimienta y ricota a eleccion.",
+      "price": 1700,
+      "thumbnails": [],
+      "code": "RJYQ01",
+      "stock": 12,
+      "category": "Pasta",
+      "status": true
+    },
+    {
+      "id": 6,
+      "title": "Prueba de ingreso",
+      "description": "algoooo",
+      "price": "350",
+      "thumbnails": [],
+      "code": "CDA35",
+      "stock": "20",
+      "category": "prueba",
+      "status": true
+    }
+]
