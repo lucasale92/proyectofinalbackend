@@ -10,9 +10,43 @@ paths:
           content:
             application/json:
               schema:
-                type: array
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado de la solicitud
+                  msg:
+                    type: string
+                    description: Mensaje descriptivo
+                  payload:
+                    type: object
+                    properties:
+                      docs:
+                        type: array
                 items:
                   $ref: '#components/schemas/Products'
+                totalDocs:
+                        type: integer
+                      limit:
+                        type: integer
+                      totalPages:
+                        type: integer
+                      page:
+                        type: integer
+                      pagingCounter:
+                        type: integer
+                      hasPrevPage:
+                        type: boolean
+                      hasNextPage:
+                        type: boolean
+                      prevPage:
+                        type: integer
+                      nextPage:
+                        type: integer
+                      prevLink:
+                        type: string
+                      nextLink:
+                        type: string  
         500:
           description: Error del servidor. Usualmente generando la query o falla la conexion a la DB
 
@@ -113,43 +147,76 @@ components:
     Products:
       type: object
       properties:
+      owner:
+          type: string
+          description: Propietario del producto
         _id:
-          type: ObjectId
-          description: ID auto generado by mongo
+          type: string
+          description: Identificador único del producto
         title:
-          type: String
-          description: Titulo del producto
+          type: string
+          description: Título del producto
         description:
-          type: String
+          type: string
           description: Descripción del producto
         price:
-          type: Number
+          type: number
           description: Precio del producto
         thumbnail:
-          type: String
-          description: url de la imágen
+          type: string
+          description: URL de la imagen del producto
         code:
-          type: String
-          description: codigo único del producto
+          type: string
+          description: Código único del producto
         stock:
-          type: Number
-          description: stock del producto
+          type: integer
+          description: Cantidad en stock del producto
         category:
-          type: String
-          description: categoria del producto
+          type: string
+          description: Categoría del producto
         status:
-          type: Boolean
-          description: estado del producto
+          type: boolean
+          description: Estado del producto
+        __v:
+          type: integer
+          description: Versión del documento
       example:
-        _id: ObjectId("644081a93f0625dc193bc594")
-        title: Sorrentinos de ricotta y nuez
-        description: Relleno de ricotta condimentada (sal, pimienta) y nuez
-        price: 1000
-        thumbnail: []
-        code: SRN01
-        stock: 20
-        category: Pasta
-        status: true
+        status: success
+        msg: listado de productos
+        payload:
+          docs:
+            - owner: admin
+              _id: ObjectId("644081a93f0625dc193bc594")
+              title: Sorrentinos de ricotta y nuez
+              description: Relleno de ricotta condimentada (sal, pimienta) y nuez
+              price: 1000
+              thumbnail: []
+              code: SRN01
+              stock: 20
+              category: Pasta
+              status: true
+              ___v: 0
+              owner: admin
+              _id: '649248f2d4ee13a5f64e62dd'
+              title: Sorrentinos de salmón
+              description: Salmon fueguino cocido al horno, cebolla de verdeo, sal, pimienta.
+              price: 2500
+              thumbnail: image.jpg
+              code: SDS01
+              stock:  10
+              category: Pasta
+              status: true
+          totalDocs: 28
+          limit: 5
+          totalPages: 6
+          page: 1
+          pagingCounter: 1
+          hasPrevPage: false
+          hasNextPage: true
+          prevPage: null
+          nextPage: 2
+          prevLink: null
+          nextLink: '/api/products?page=2'
   requestBodies:
     updateProduct:
       type: object

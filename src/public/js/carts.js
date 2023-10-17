@@ -2,7 +2,7 @@ function putIntoCart(_id) {
   const cartInfoElement = document.querySelector('.cartId');
   const cartId = cartInfoElement?.id;
   if (cartId === undefined) {
-    window.location.href = 'https://localhost:8080/auth/login';
+    window.location.href = 'https://proyectofinalbackend-lriveros.onrender.com/auth/login';
   }
 
   fetch(`/api/carts/${cartId}/products/${_id}`, {

@@ -82,7 +82,7 @@ export function iniPassport() {
       {
         clientID: GITHUB_CLIENT_ID,
         clientSecret: GITHUB_CLIENT_SECRET,
-        callbackURL: 'http://localhost:8080/api/sessions/githubcallback',
+        callbackURL: 'http://proyectofinalbackend-lriveros.onrender.com/api/sessions/githubcallback',
       },
       async (accesToken, _, profile, done) => {
         try {
