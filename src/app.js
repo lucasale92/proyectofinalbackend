@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Socket.io webSockets
 const httpServer = app.listen(port, () => {
-  console.log(`💪 App listening on port ➡️  http://localhost:${port}`);
+  console.log(`💪 App listening on port ➡️  ${port}`);
 });
 
 /* Connet to Mongo */
