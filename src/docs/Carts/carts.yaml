@@ -196,9 +196,11 @@ components:
         products:
           - quantity: 1
             _id: ObjectId(647e6c999ff867d416d64cda)
+            __v: 9
           - quantity: 1
             _id: ObjectId(647e76e3f2fe3f6509a309c3)
-
+            __v: 2
+            
   requestBodies:
     updateProduct:
       type: object

@@ -4,23 +4,22 @@
     "title": "Sorrentinos de ricotta y nuez",
     "description": "Relleno de ricotta condimentada (sal, pimienta) y nuez",
     "price": 1000,
+    "thumbnails": "image.jpg",
     "code": "SRN01",
     "stock": 20,
-    "status": true,
     "category": "Pasta",
-    "thumbnails": []
-  
+    "status": true
     },
     {     
     "id":1, 
-    "status": true,
     "title": "Ravioles de verdura",
     "description": "Relleno de espinaca, cebolla rehogada, queso crema, queso rallado, ricota, pimienta y sal.",
     "price": 1700,
+    "thumbnails": "image.jpg",
     "code": "RDV01",
     "stock": 18,
-    "thumbnails": [],
-    "category": "Pasta"
+    "category": "Pasta",
+    "status": true
           
     },
     {
@@ -28,7 +27,7 @@
       "title": "Sorrentinos de salmón",
       "description": "Salmon fueguino cocido al horno, cebolla de verdeo, sal, pimienta.",
       "price": 2500,
-      "thumbnails": [],
+      "thumbnails": "image.jpg",
       "code": "SDS01",
       "stock": 25,
       "category": "Pasta",
@@ -39,7 +38,7 @@
       "title": "Pizza de centolla",
       "description": "Centolla fueguina precocida, cebolla de verdeo, queso y queso azul.",
       "price":2300,
-      "thumbnails": [],
+      "thumbnails": "image.jpg",
       "code": "PDC01",
       "stock": 5,
       "category": "Pizza",
@@ -50,7 +49,7 @@
       "title": "Pan casero",
       "description": "Pan casero artesanal",
       "price": 320,
-      "thumbnails": [],
+      "thumbnails": "image.jpg",
       "code": "PNC01",
       "stock": 18,
       "category": "Pan",
@@ -61,7 +60,7 @@
       "title": "Ravioles de jamón y queso",
       "description": "Jamón, queso, cebolla de verdeo, pimienta y ricota a eleccion.",
       "price": 1700,
-      "thumbnails": [],
+      "thumbnails": "image.jpg",
       "code": "RJYQ01",
       "stock": 12,
       "category": "Pasta",
@@ -72,7 +71,7 @@
       "title": "Prueba de ingreso",
       "description": "algoooo",
       "price": "350",
-      "thumbnails": [],
+      "thumbnails": "image.jpg",
       "code": "CDA35",
       "stock": "20",
       "category": "prueba",

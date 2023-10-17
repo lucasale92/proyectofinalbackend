@@ -1,3 +1,6 @@
+<a href='/auth/perfil'><button>ir a Perfil</button></a>
+<p>User: {{userEmail}}</p>
+<p>Premium: {{userRole}}</p>
 <h2 class='text-center'>Ingresar Producto</h2>
 <form id='form-products' class='w-50 m-auto'>
   <div class='form-floating mb-3'>
@@ -28,6 +31,12 @@
     <input class='form-control' type='text' name='category' id='category' />
     <label for='floatingInput'>Category</label>
   </div>
+  {{#if userRole}}
+    <div class='form-floating mb-3'>
+      <input class='form-control' type='email' name='email' id='userEmail' placeholder='{{userEmail}}' disabled />
+      <label for='floatingInput'>Creado por {{userEmail}}</label>
+    </div>
+  {{/if}}
   <input class='"send' type='submit' value='Ingresar Producto' />
 </form>
 
@@ -37,7 +46,7 @@
     {{#each products}}
       <div class='col-sm-6 mb-3 mb-sm-0'>
         <div class='card'>
-          <img src='' class='card-img-top' alt='{{thumbnail}}' />
+          <img src='{{thumbnail}}' class='card-img-top' alt='{{thumbnail}}' />
           <div class='card-body'>
             <h5 class='card-title'>Title: {{title}}</h5>
             <p class='card-text'>Description: {{description}}</p>
@@ -48,6 +57,7 @@
             <li class='list-group-item'>Code: {{code}}</li>
             <li class='list-group-item'>Stock: {{stock}}</li>
             <li class='list-group-item'>Category: {{category}}</li>
+            <li class='list-group-item'>Creado por: {{owner}}</li>
           </ul>
           <div class='card-body'>
             <button type='button' class='btn btn-danger' onclick="deleteProduct('{{id}}')">Eliminar</button>

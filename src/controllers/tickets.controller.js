@@ -3,6 +3,7 @@ import { CartClass } from '../DAO/classes/carts.class.js';
 import { ProductClass } from '../DAO/classes/products.class.js';
 import { TicketModel } from '../DAO/models/tickets.models.js';
 import { CartService } from '../services/carts.service.js';
+import { logger } from '../utils/logger.utils.js';
 const cartService = new CartService();
 const cartClass = new CartClass();
 const productClass = new ProductClass();
@@ -13,7 +14,7 @@ class TicketsController {
       const { cid } = req.params;
       const cartFound = await cartClass.findCartById(cid);
       if (!cartFound) {
-        throw new Error('Cart not found');
+        throw new Error('Carrito no encontrado');
       }
 
       const idCart = cartFound._id;
@@ -28,7 +29,7 @@ class TicketsController {
 
       return res.status(200).render('carts', { cart: cart, idCart });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 
@@ -38,12 +39,11 @@ class TicketsController {
       const infoUser = new userDTO(req.session);
       const cartFound = await cartClass.findCartById(cid);
       if (!cartFound) {
-        throw new Error('Cart not found');
+        throw new Error('Carrito no encontrado');
       }
 
       const idCart = cartFound._id;
 
-      // Calcula el total de la compra
       let cart = cartFound.products.map((item) => {
         return {
           id: item._id._id,
@@ -52,7 +52,7 @@ class TicketsController {
           quantity: item.quantity,
         };
       });
-      console.log('devuelve lo de adentro del cart', cart);
+
 
       let precioTotal = 0;
       cart.forEach((producto) => {
@@ -61,7 +61,7 @@ class TicketsController {
 
       return res.status(200).render('purchase', { cart: cart, idCart, infoUser, precioTotal });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 
@@ -72,7 +72,7 @@ class TicketsController {
       const infoUserEmail = req.session.email;
       const cartFound = await cartClass.findCartById(cid);
       if (!cartFound) {
-        throw new Error('Cart not found');
+        throw new Error('Carrito no encontrado');
       }
 
       const idCart = cartFound._id;
@@ -80,7 +80,6 @@ class TicketsController {
       let cartConStock = [];
       let cartSinStock = [];
 
-      /* Separo los productos con Stock y Sin stock */
       cartFound.products.forEach((item) => {
         const idProduct = item._id._id.toString();
         const title = item._id.title;
@@ -139,7 +138,7 @@ class TicketsController {
       const idTicket = ticket._id;
       return res.status(200).render('ticketFinal', { idTicket, cart: cart, idCart, infoUser, precioTotal });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 }

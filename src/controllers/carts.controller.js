@@ -1,4 +1,5 @@
 import { CartService } from '../services/carts.service.js';
+import { Logger } from '../utils/logger.utils.js';  
 
 const Carts = new CartService();
 
@@ -13,7 +14,7 @@ class CartController {
     } catch (error) {
       res.status(500).json({
         status: 'error',
-        message: 'error creating cart',
+        message: 'Error al crear carrito',
       });
     }
   }
@@ -28,7 +29,7 @@ class CartController {
         payload: cart,
       });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
       res.status(500).json({
         status: 'error',
         message: 'FATAL ERROR',
@@ -43,18 +44,18 @@ class CartController {
       if (!cart) {
         return res.status(404).json({
           status: 'error',
-          message: `cart ${cid} not found`,
+          message: `Carrito ${cid} no encontrado`,
         });
       }
       res.status(200).json({
         status: 'success',
-        msg: 'Cart found',
+        msg: 'Carrito encontrado',
         payload: cart,
       });
     } catch (error) {
       res.status(500).json({
         status: 'error',
-        message: 'error getting cart',
+        message: 'Error al obtener el carrito',
       });
     }
   }
@@ -64,13 +65,13 @@ class CartController {
       const carts = await Carts.getAll();
       return res.status(201).json({
         status: 'success',
-        msg: 'Carts list',
+        msg: 'Lista de carritos',
         payload: carts,
       });
     } catch (error) {
       res.status(500).json({
         status: 'error',
-        message: 'cart not found',
+        message: 'Carrito no encontrado',
         payload: {},
       });
     }
@@ -80,11 +81,10 @@ class CartController {
     try {
       const { cid } = req.params;
       const { products, quantity } = req.body;
-      console.log(products);
       const updatedCart = await Carts.updateCart(cid, products, quantity);
       return res.status(200).json({ status: 'success', payload: updatedCart });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 
@@ -95,11 +95,11 @@ class CartController {
       const cart = await Carts.removeProductFromCart(cid, pid);
       return res.status(200).json({
         status: 'success',
-        msg: 'Product removed from cart',
+        msg: 'Producto eliminado del carrito',
         payload: cart,
       });
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       return res.status(400).json({
         status: 'error',
         msg: error.message,
@@ -113,11 +113,11 @@ class CartController {
       const cart = await Carts.cleanCart(cid);
       return res.status(200).json({
         status: 'success',
-        msg: 'Product removed from cart',
+        msg: 'Producto eliminado del carrito',
         payload: cart,
       });
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       return res.status(400).json({
         status: 'error',
         msg: error.message,

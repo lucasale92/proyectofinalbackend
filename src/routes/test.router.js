@@ -7,9 +7,6 @@ testLogger.get('/', (req, res) => {
   } catch (error) {
     req.logger.error(error);
   }
-  /* req.logger.error('TODO MAL :(');
-  req.logger.warn('algo no tan malo ocurrio');
-  req.logger.info('reportando algo'); */
   req.logger.debug('Debug');
   req.logger.http('HTTP');
   req.logger.info('reportando algo - Informacion');

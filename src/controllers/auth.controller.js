@@ -9,28 +9,51 @@ class AuthController {
 
   async login(req, res) {
     if (!req.user) {
-      return res.json({ error: 'invalid credentials' });
+      return res.json({ error: 'credenciales no válidas' });
     }
+    const user = await UserModel.findOne({ email: req.user.email });
+    const connectionNow = parseInt(Date.now()) + 2 * 24 * 60 * 60 * 1000;
+    user.last_connection = connectionNow;
+    await user.save();
+
     req.session.email = req.user.email;
     req.session.isAdmin = req.user.isAdmin;
     req.session.cart = req.user.cart;
+    req.session.premium = req.user.premium
 
     return res.redirect('/products');
   }
 
   async perfil(req, res) {
-    const user = { email: req.session.email, isAdmin: req.session.isAdmin, cart: req.session.cart };
+    const user = { email: req.session.email, isAdmin: req.session.isAdmin, premium: req.session.premium, cart: req.session.cart };
     return res.render('perfil', { user: user });
   }
 
   async admin(req, res) {
-    return res.send('datos clasificados');
+    try {
+      const usersAll = await UserModel.find({});
+      let users = usersAll.map((user) => {
+        return {
+          id: user._id.toString(),
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          age: user.age,
+          premium: user.premium,
+        };
+      });
+      return res.render('admin', { users });
+    } catch (error) {
+      throw new Error();
+    }
   }
+  
 
   async logout(req, res) {
     req.session.destroy((err) => {
       if (err) {
-        return res.status(500).render('error', { error: 'No se pudo cerrar su sesión :(' });
+        return res.status(500).render('error', { error: 'No se pudo cerrar su sesión ' });
       } else {
         return res.redirect('/auth/login');
       }
@@ -39,18 +62,24 @@ class AuthController {
 
   async register(req, res) {
     if (!req.user) {
-      return res.json({ error: 'something went wrong' });
+      return res.json({ error: 'algo salió mal 😣' });
     }
+    const user = await UserModel.findOne({ email: req.user.email });
+    const connectionNow = parseInt(Date.now()) + 2 * 24 * 60 * 60 * 1000;
+    user.last_connection = connectionNow;
+    await user.save();
 
     req.session.email = req.user.email;
     req.session.isAdmin = req.user.isAdmin;
     req.session.cart = req.user.cart;
+    req.session.premium = req.user.premium;
+
 
     return res.redirect('/auth/perfil');
   }
 
   async failRegister(req, res) {
-    return res.json({ error: 'fail to register' });
+    return res.json({ error: 'falla al registrar' });
   }
 
   async failLogin(req, res) {
@@ -69,7 +98,7 @@ class AuthController {
     const { email } = req.body;
     let code = generateRandomCode();
 
-    /* TODO Poner en un archivo aparte y exportarlo */
+
     const codeCreated = await RecoverCodesModel.create({ email, code, expires: Date.now() + 3600000 });
 
     const result = transport.sendMail({
@@ -82,10 +111,6 @@ class AuthController {
             </div>
             `,
     });
-
-    console.log('Email', email);
-    console.log('Codigo', codeCreated);
-    console.log('Resultado', result);
 
     res.render('check-email', {});
   }

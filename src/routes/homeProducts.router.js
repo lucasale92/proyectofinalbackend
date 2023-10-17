@@ -1,5 +1,6 @@
 import express from 'express';
 import { ProductModel } from '../DAO/models/products.model.js';
+import { logger } from '../utils/logger.utils.js';
 
 export const productsHtml = express.Router();
 
@@ -9,6 +10,7 @@ productsHtml.get('/', async (req, res) => {
     const queryCategory = category ? { category: category } : {};
     const userSession = req.session.email;
     const userSessionisAdmin = req.session.isAdmin;
+    const userSessionisPremium = req.session.premium;
     const cart = req.session.cart;
 
     let querySort = {};
@@ -41,9 +43,9 @@ productsHtml.get('/', async (req, res) => {
       links.push({ label: i, href: 'http://localhost:8080/products?page=' + i });
     }
 
-    return res.status(200).render('home', { products, pagination: rest, links, userSession, userSessionisAdmin, cart });
+    return res.status(200).render('home', { products, pagination: rest, links, userSession, userSessionisAdmin, userSessionisPremium, cart });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 });
 
@@ -62,6 +64,6 @@ productsHtml.get('/:pid', async (req, res) => {
     };
     return res.status(200).render('productDetail', { product });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 });

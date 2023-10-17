@@ -1,26 +1,48 @@
 import express from 'express';
 import { ProductModel } from '../DAO/models/products.model.js';
-import { isAdmin } from '../middleware/auth.js';
+import { isAdminOrPremium } from '../middleware/auth.js';
+import { logger } from '../utils/logger.utils.js';
 
 export const productsRealTime = express.Router();
 
-productsRealTime.get('/', isAdmin, async (req, res) => {
+productsRealTime.get('/', isAdminOrPremium, async (req, res) => {
   try {
-    const productsAll = await ProductModel.find({});
-    const products = productsAll.map((product) => {
-      return {
-        title: product.title,
-        id: product._id,
-        description: product.description,
-        price: product.price,
-        code: product.code,
-        stock: product.stock,
-        category: product.category,
-        thumbnail: product.thumbnail,
-      };
-    });
-    return res.status(200).render('realTimeProducts', { products });
+    const userEmail = req.session?.email;
+    const userRole = req.session?.premium;
+    if (userRole) {
+      const productsAll = await ProductModel.find({ owner: userEmail });
+      const products = productsAll.map((product) => {
+        return {
+          title: product.title,
+          id: product._id,
+          description: product.description,
+          price: product.price,
+          code: product.code,
+          stock: product.stock,
+          category: product.category,
+          thumbnail: product.thumbnail,
+          owner: product.owner,
+        };
+      });
+      return res.status(200).render('realTimeProducts', { products, userEmail, userRole });
+    } else {
+      const productsAll = await ProductModel.find({});
+      const products = productsAll.map((product) => {
+        return {
+          title: product.title,
+          id: product._id,
+          description: product.description,
+          price: product.price,
+          code: product.code,
+          stock: product.stock,
+          category: product.category,
+          thumbnail: product.thumbnail,
+          owner: product.owner,
+        };
+      });
+      return res.status(200).render('realTimeProducts', { products, userEmail, userRole });
+    }
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 });

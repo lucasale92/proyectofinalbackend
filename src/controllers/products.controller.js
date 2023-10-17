@@ -1,4 +1,5 @@
 import { ProductService } from '../services/products.service.js';
+import { logger } from '../utils/logger.utils.js';
 
 const Products = new ProductService();
 
@@ -15,10 +16,10 @@ class ProductsController {
         payload: products,
       });
     } catch (e) {
-      console.log(e);
+      logger.error(error);
       return res.status(500).json({
         status: 'error',
-        msg: 'something went wrong :(',
+        msg: 'algo salió mal',
         products: {},
       });
     }
@@ -34,10 +35,10 @@ class ProductsController {
         payload: product,
       });
     } catch (e) {
-      console.log(e);
+      logger.error(error);
       return res.status(500).json({
         status: 'error',
-        msg: 'something went wrong :(',
+        msg: 'algo salió mal',
         payload: {},
       });
     }
@@ -50,14 +51,14 @@ class ProductsController {
       const productCreated = await Products.createOne(title, description, price, thumbnail, code, stock, category, status);
       return res.status(201).json({
         status: 'success',
-        msg: 'product created',
+        msg: 'Producto creado',
         payload: productCreated,
       });
     } catch (e) {
-      console.log(e);
+      logger.error(error);
       return res.status(500).json({
         status: 'error',
-        msg: 'something went wrong :(',
+        msg: 'algo salió mal',
         payload: {},
       });
     }
@@ -72,14 +73,14 @@ class ProductsController {
 
       return res.status(201).json({
         status: 'success',
-        msg: 'product uptaded',
+        msg: 'Producto actualizado',
         payload: productUptaded,
       });
     } catch (e) {
-      console.log(e);
+      logger.error(error);
       return res.status(500).json({
         status: 'error',
-        msg: 'something went wrong :(',
+        msg: 'algo salió mal',
         payload: {},
       });
     }
@@ -92,14 +93,14 @@ class ProductsController {
       const deleted = await Products.deleteOne(id);
       return res.status(200).json({
         status: 'success',
-        msg: 'product deleted',
+        msg: 'Producto borrado',
         payload: deleted,
       });
     } catch (e) {
-      console.log(e);
+      logger.error(error);
       return res.status(500).json({
         status: 'error',
-        msg: 'something went wrong :(',
+        msg: 'algo salió mal',
         payload: {},
       });
     }

@@ -1,7 +1,8 @@
 import { EError } from '../services/errors/enums.js';
+import { logger } from '../utils/logger.utils.js';
 
 export default (error, req, res, next) => {
-  console.log(error.cause);
+  logger.error(error.cause);
 
   switch (error.code) {
     case EError.INCOMPLETE_FIELD_ERROR:
@@ -15,7 +16,7 @@ export default (error, req, res, next) => {
     default:
       res.send({
         status: 'error',
-        error: 'Unhandler error',
+        error: 'Error no controlado',
       });
       break;
   }

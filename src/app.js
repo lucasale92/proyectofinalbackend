@@ -24,9 +24,10 @@ import { addLogger } from './middleware/logger.js';
 import { usersRouter } from './routes/users.router.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUiExpress from 'swagger-ui-express';
+import { logger } from './utils/logger.utils.js';
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.use(addLogger);
 
@@ -35,7 +36,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Socket.io webSockets
 const httpServer = app.listen(port, () => {
-  console.log(`🍕 App listening on port ➡️  http://localhost:${port}`);
+  console.log(`💪 App listening on port ➡️  http://localhost:${port}`);
 });
 
 /* Connet to Mongo */
@@ -85,8 +86,9 @@ app.use('/api/carts', cartsRouter);
 app.use('/api/users', usersRouter);
 
 /* HTML Render */
+const API_URL = process.env.API_URL;
 app.get('/', (req, res) => {
-  return res.redirect('http://localhost:8080/auth/login');
+  return res.redirect(`${API_URL}auth/login`);
 });
 app.use('/products', productsHtml);
 app.use('/carts', cartsHtml);

@@ -1,4 +1,4 @@
-/******************************* Session isAdmin *******************************/
+//  Session isAdmin 
 export function isAdmin(req, res, next) {
   if (req.session?.isAdmin) {
     return next();
@@ -6,7 +6,23 @@ export function isAdmin(req, res, next) {
   return res.status(403).render('error', { error: 'Error de autorización' });
 }
 
-/******************************* Session isUser *******************************/
+//  Session isAdmin 
+export function isPremium(req, res, next) {
+  if (req.session?.premium) {
+    return next();
+  }
+  return res.status(403).render('error', { error: 'Error de autorización' });
+}
+
+// Session isAdmin or Premium
+export function isAdminOrPremium(req, res, next) {
+  if (req.session?.isAdmin || req.session?.premium) {
+    return next();
+  }
+  return res.status(403).render('error', { error: 'Error de autorización' });
+}
+
+// Session isUser
 export function isUser(req, res, next) {
   if (req.session?.email) {
     return next();

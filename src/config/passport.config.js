@@ -97,7 +97,7 @@ export function iniPassport() {
           const emailDetail = emails.find((email) => email.verified == true);
 
           if (!emailDetail) {
-            return done(new Error('cannot get a valid email for this user'));
+            return done(new Error('No puedo obtener un correo electrónico válido para este usuario'));
           }
           profile.email = emailDetail.email;
 
@@ -113,15 +113,15 @@ export function iniPassport() {
               cart: await cartService.createCart(),
             };
             let userCreated = await UserModel.create(newUser);
-            console.log('User Registration succesful');
+            logger.info('Registro de usuario exitoso');
             return done(null, userCreated);
           } else {
-            console.log('User already exists');
+            logger.info('El usuario ya existe');
             return done(null, user);
           }
         } catch (e) {
-          console.log('Error en auth github');
-          console.log(e);
+           logger.error('Error en autenticación con github');
+           logger.error(e);
           return done(e);
         }
       }
