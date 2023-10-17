@@ -31,7 +31,7 @@ export class CartClass {
   async cleanCart(cid) {
     const cart = await CartModel.findById(cid);
     if (!cart) {
-      throw new Error('Cart not found');
+      throw new Error('Carrito no encontrado');
     }
     return cart;
   }
@@ -39,7 +39,7 @@ export class CartClass {
   async findCartById(cid) {
     const cart = await CartModel.findById(cid);
     if (!cart) {
-      throw new Error('Cart not found');
+      throw new Error('Carrito no encontrado');
     }
     return cart;
   }

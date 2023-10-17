@@ -5,6 +5,7 @@ import local from 'passport-local';
 import { UserModel } from '../DAO/models/users.model.js';
 import { createHash, isValidPassword } from '../utils.js';
 import { CartService } from '../services/carts.service.js';
+import { logger } from '../utils.js';
 
 const LocalStrategy = local.Strategy;
 const cartService = new CartService();
@@ -13,24 +14,19 @@ const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
 export function iniPassport() {
-  /************************************* Login *************************************/
+// login
   passport.use(
     'login',
     new LocalStrategy({ usernameField: 'email' }, async (username, password, done) => {
       try {
         const user = await UserModel.findOne({ email: username });
         if (!user) {
-          console.log('User Not Found with username (email) ' + username);
+          logger.info('UUsuario no encontrado con nombre de usuario (email) ' + username);
           return done(null, false);
         }
         if (!isValidPassword(password, user.password)) {
-          console.log('Invalid Password');
+          logger.error('Contraseña invalida');
           return done(null, false);
-        }
-
-        /* Comprobar que tenga un carrito asignado */
-        if (user.cart) {
-          console.log(user.cart);
         }
 
         return done(null, user);
@@ -40,7 +36,7 @@ export function iniPassport() {
     })
   );
 
-  /************************************* Register *************************************/
+// registro
   passport.use(
     'register',
     new LocalStrategy(
@@ -53,7 +49,7 @@ export function iniPassport() {
           const { email, firstName, lastName, age } = req.body;
           let user = await UserModel.findOne({ email: username });
           if (user) {
-            console.log('User already exists');
+            logger.info('El usuario ya existe');
             return done(null, false);
           }
 
@@ -68,19 +64,18 @@ export function iniPassport() {
           };
 
           let userCreated = await UserModel.create(newUser);
-          console.log(userCreated);
-          console.log('User Registration succesful');
+          logger.info('Registro de usuario exitoso');
           return done(null, userCreated);
         } catch (e) {
-          console.log('Error in register');
-          console.log(e);
+          logger.error('Error en registro');
+          logger.error(e);
           return done(e);
         }
       }
     )
   );
 
-  /************************************* Github *************************************/
+// github
   passport.use(
     'github',
     new GitHubStrategy(

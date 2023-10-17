@@ -36,5 +36,17 @@ const schema = new Schema({
     ref: 'carts',
     required: true,
   },
+  premium: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  documents: [
+    {
+      name: { tipe: String },
+      link: { tipe: String },
+    },
+  ],
+  last_connection: { type: Number },
 });
 export const UserModel = model('users', schema);

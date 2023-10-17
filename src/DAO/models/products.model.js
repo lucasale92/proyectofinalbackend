@@ -10,6 +10,7 @@ const schema = new Schema({
   stock: { type: Number, required: true, max: 100 },
   category: { type: String, required: true, max: 100 },
   status: { type: Boolean, required: true, max: 5 },
+  owner: { type: String, max: 100, default: 'admin' },  
 });
 
 schema.plugin(mongoosePagination);

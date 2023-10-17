@@ -15,7 +15,7 @@ class ProductManager {
       const { title, description, price, thumbnail, code, stock, category } = productData;
 
       if (!title || !description || !price || !thumbnail || !code || !stock || !category) {
-        return 'complete all fields';
+        return 'Completar todos los campos';
       } else {
         let products = [];
 
@@ -24,7 +24,7 @@ class ProductManager {
 
         const productFound = products.some((item) => item.code == code);
         if (productFound) {
-          return 'The product already exists';
+          return 'El producto ya existe';
         } else {
           if (products.length > 0) {
             this.id = products[products.length - 1].id + 1;
@@ -33,11 +33,10 @@ class ProductManager {
           products.push(product);
           let productString = JSON.stringify(products, null, 2);
           await fs.promises.writeFile(this.path, productString);
-          return 'Added product!';
+          return 'Producto agregado!';
         }
       }
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -52,7 +51,6 @@ class ProductManager {
       products = JSON.parse(productsContent);
       return products;
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -72,7 +70,6 @@ class ProductManager {
         return null;
       }
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -96,12 +93,11 @@ class ProductManager {
 
         let productString = JSON.stringify(products, null, 2);
         await fs.promises.writeFile(this.path, productString);
-        return 'Modified Product';
+        return 'Producto modificado';
       } else {
-        return 'Product Not Found';
+        return 'Producto no encontrado';
       }
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -119,12 +115,11 @@ class ProductManager {
         products.splice(indexProduct, 1);
         let productString = JSON.stringify(products, null, 2);
         await fs.promises.writeFile(this.path, productString);
-        return 'Delete product!';
+        return 'Producto borrado!';
       } else {
-        return 'Product Not Found';
+        return 'Producto no encontrado';
       }
     } catch (error) {
-      console.log(error);
     }
   }
 }

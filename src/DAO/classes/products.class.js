@@ -6,8 +6,8 @@ export class ProductClass {
     return product;
   }
 
-  async createOne(title, description, price, thumbnail, code, stock, category, status) {
-    const productCreated = await ProductModel.create({ title, description, price, thumbnail, code, stock, category, status });
+  async createOne(title, description, price, thumbnail, code, stock, category, status, owner) {
+    const productCreated = await ProductModel.create({ title, description, price, thumbnail, code, stock, category, status, owner });
     return productCreated;
   }
 

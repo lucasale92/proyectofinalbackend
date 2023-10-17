@@ -28,9 +28,8 @@ class CartManager {
       carts.push(newCart);
       let cartString = JSON.stringify(carts, null, 2);
       await fs.promises.writeFile(this.path, cartString);
-      return 'Created Cart!';
+      return 'Carrito creado!';
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -55,7 +54,7 @@ class CartManager {
           carts.splice(indexCart, 1, cartFound);
           let cartString = JSON.stringify(carts, null, 2);
           await fs.promises.writeFile(this.path, cartString);
-          return 'You added an additional quantity of the product to the cart';
+          return 'Agregaste una cantidad adicional del producto al carrito.';
         } else {
           cartFound.products.push({ idProduct: productId, quantity: 1 });
           const indexCart = carts.indexOf(cartFound);
@@ -82,7 +81,6 @@ class CartManager {
       carts = JSON.parse(cartContent);
       return carts;
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -103,7 +101,6 @@ class CartManager {
         return null;
       }
     } catch (error) {
-      console.log(error);
     }
   }
 }
