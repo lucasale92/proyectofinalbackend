@@ -31,8 +31,7 @@ p {
 .banner {
   position: relative;
   width: 100%;
-  height: calc(100vh - 50px);
-  background-image: url('../img/fondosvg.png');
+  height: 100%;
   background-size: cover;
   background-position: center;
 }
