@@ -3,8 +3,6 @@
   margin: 0;
   /* box-sizing: border-box; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.fondo{
   background: linear-gradient(to right, #008C45, #FFFFFF, #BF0A30);
 }
 
@@ -98,7 +96,7 @@ p {
 .info-childs input {
   background-color: transparent;
   outline: none;
-  border: solid 2px #0ba360;
+  border: solid 2px #050c09;
   border-radius: 20px;
   padding: 10px 20px;
   color: #0ba360;
@@ -109,7 +107,7 @@ p {
 
 .info-childs input:hover {
   background-color: #37e69a;
-  border: none;
+  border: solid 2px #050c09;;
   color: #ffffffbe;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -148,7 +146,7 @@ p {
   cursor: pointer;
   margin: 0 10px;
   color: #0ba360;
-  border: solid thin #0ba360;
+  border: solid thin #b61212cc;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
