@@ -129,23 +129,14 @@ p {
 
 /*Banner*/
 .banner {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-}
-
-.banner-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   background-image: url(../img/sorrentino.jpg);
   background-size: cover;
-  color: white;
-  font-size: 18px;
+  background-position: center;
+  height: 60vh; /* Ajusta la altura según tus necesidades */
 }
 
-.banner-content h1 {
+
+.banner .h1 {
   color: white;
   padding-bottom: 30px;
   font-size: 50px;
