@@ -63,7 +63,7 @@ a {
   display: flex;
   align-items: center;
   text-align: center;
-  background-color: #88f8c8cc;
+  background-color: #b61212cc;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -142,7 +142,7 @@ a {
 }
 
 .icons i:hover {
-  background-color: #37e69a;
+  background-color: #b61212cc;
   color: #fff;
 }
 
@@ -167,7 +167,7 @@ a {
   border: none;
   outline: none;
   border-radius: 20px;
-  color: #333;
+  color: #b61212cc
 }
 
 .form label i {
