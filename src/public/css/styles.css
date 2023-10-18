@@ -269,29 +269,6 @@ a {
   margin-bottom: 1rem;
 }
 
-.button{
-  color: white;
-  outline: none;
-  border: solid 2px #a30b13;
-  border-radius: 20px;
-  padding: 10px 20px;
-  background-color: #a30b13;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1rem;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-button:hover {
-  outline: none;
-  border: solid 2px #a30b13;
-  border-radius: 20px;
-  padding: 10px 20px;
-  background-color: #a30b13;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
 .info-childsbutton button:hover {
   outline: none;
@@ -302,7 +279,30 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.info-childsbutton buttonn {
+  color: white;
+  outline: none;
+  border: solid 2px #b81a1a;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #b81a1a;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
+
+.info-childsbutton buttonn:hover {
+  outline: none;
+  border: solid 2px #b81a1a;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #b81a1a;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 .titulo-error {
   margin-bottom: 3rem;
   color: red;
