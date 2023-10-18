@@ -1,8 +1,12 @@
 * {
+  padding: 0;
+  margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url(../img/fondosvg.png);
+}
+body {
   margin: 0;
   padding: 0;
+  background-image: url('../img/fondosvg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,8 +23,8 @@ p {
   line-height: 1.5; 
   margin: 10px 0; 
   color: #333; 
-  text-align: left; 
-  font-weight: 400; 
+  text-align: center; 
+  font-weight: 300; 
 }
 
 /*Banner*/
