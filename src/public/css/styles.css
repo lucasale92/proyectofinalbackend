@@ -4,6 +4,103 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /*login*/
+/* Estilos para la página de login */
+
+/* Aplicamos un estilo general a todo el formulario de inicio de sesión y registro */
+.container-form .info-childs, .container-form .form-information-childs {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilizamos el título "Bienvenido" */
+.info-childs h2, .form-information-childs h2 {
+  font-size: 2.3rem;
+  color: #333;
+}
+
+/* Estilizamos el botón de registro */
+.info-childs input[type="button"] {
+  background-color: transparent;
+  outline: none;
+  border: 2px solid #050c09;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #0ba360;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.info-childs input[type="button"]:hover {
+  background-color: #37e69a;
+  border: 2px solid #050c09;
+  color: #ffffffbe;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilizamos el título "Iniciar Sesión" */
+.form-information-childs h2 {
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Estilizamos los íconos para iniciar sesión con redes sociales */
+.icons i {
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  margin: 0 10px;
+  color: #0ba360;
+  border: thin solid #b61212cc;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.icons i:hover {
+  background-color: #b61212cc;
+  color: #fff;
+}
+
+/* Estilizamos los campos de entrada y etiquetas del formulario */
+.form label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  padding: 0 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form label input {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: #333;
+}
+
+.form label i {
+  color: #a7a7a7;
+}
+
+/* Estilizamos el botón de inicio de sesión */
+.form input[type="submit"] {
+  background-color: #0ba360;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="submit"]:hover {
+  background-color: #a7aa9a;
+}
 
 a {
   text-decoration: none;
