@@ -26,7 +26,7 @@ a {
   justify-content: center;
   flex-direction: column;
   height: 40vh;
-  background-image: url(../img/marco-antonio-casique-reyes-UgnGw6g0Mc4-unsplash.jpg);
+  background-image: url(../img/sorrentino.jpg);
   background-size: cover;
   color: white;
   font-size: 18px;
@@ -44,7 +44,7 @@ a {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url(../img/shopping-cart-filled-with-coins-copy-space-background.jpg);
+  background-image: url(../img/fondo.jpg);
   background-size: cover;
 }
 
@@ -251,7 +251,7 @@ a {
   flex-direction: column;
   color: white;
   height: 100vh;
-  background-image: url(../img/2h-media-bzAERcr5dSw-unsplasherror.jpg);
+  background-image: url(../img/error.jpg);
   background-size: cover;
 }
 
@@ -364,7 +364,7 @@ ul {
   align-items: center;
   justify-content: center;
   height: 40vh;
-  background-image: url(../img/2h-media-FX6ewp5j02o-unsplashportadaperfil.png);
+  background-image: url(../img/portadaperfil.jpg);
   background-size: cover;
 }
 
@@ -413,6 +413,6 @@ ul {
   align-items: center;
   justify-content: center;
   height: 40vh;
-  background-image: url(../img/cartfotounsplash.png);
+  background-image: url(../img/cart.jpg);
   background-size: cover;
 }
