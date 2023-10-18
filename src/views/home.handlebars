@@ -21,7 +21,11 @@
         <div class='info-childsbutton'>
           <a class='cartId' href='/carts/{{cart}}'><Button>Ver Carrito</Button></a>
         </div>
-        <a class='info-childsbutton' href='/auth/logout'>Cerrar Sesion</a>
+        <div class='info-childsbutton'>
+        <i class='bx bx-logout'></i>
+        <input type='logout' name='logout'/>
+        <a href='/auth/logout'>Cerrar Sesion</a>
+        </div>
       </div>
     {{/if}}
   </div>
