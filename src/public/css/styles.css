@@ -4,6 +4,9 @@
   /* box-sizing: border-box; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-image: url(../img/fondoo.jpg);
+  background-size: cover;
+  background-position: center;
+
 }
 
 a {
@@ -16,7 +19,7 @@ p {
   line-height: 1.5; 
   margin: 10px 0; 
   color: #333; 
-  text-align: center; 
+  text-align: left; 
   font-weight: 300; 
 }
 
