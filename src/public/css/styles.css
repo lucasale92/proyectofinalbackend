@@ -4,7 +4,6 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /*login*/
-/* Estilos para la página de login */
 
 /* Aplicamos un estilo general a todo el formulario de inicio de sesión y registro */
 .container-form .info-childs, .container-form .form-information-childs {
@@ -102,9 +101,18 @@
   background-color: #a7aa9a;
 }
 
+
 a {
   text-decoration: none;
   color: #333;
+}
+
+.fondo {
+  background-image: url(../img/fondosvg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 p {
@@ -133,7 +141,6 @@ p {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 40vh;
   background-image: url(../img/sorrentino.jpg);
   background-size: cover;
   color: white;
