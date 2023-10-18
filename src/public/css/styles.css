@@ -123,8 +123,8 @@ p {
   text-align: center; 
   font-weight: 300; 
 }
-.contraste{
-  color: #fff;
+.bck{
+  background-color: peru;
 }
 
 /*Banner*/
@@ -132,7 +132,7 @@ p {
   background-image: url(../img/sorrentino.jpg);
   background-size: cover;
   background-position: center;
-  height: 60vh; /* Ajusta la altura según tus necesidades */
+  height: 60vh; 
 }
 
 
@@ -197,7 +197,6 @@ p {
   padding: 10px 20px;
   color: #0ba360;
   cursor: pointer;
-
   transition: background-color 0.3s ease;
 }
 
