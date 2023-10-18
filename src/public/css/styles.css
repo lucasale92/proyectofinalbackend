@@ -249,7 +249,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: white;
+  color: red;
   height: 100vh;
   background-image: url(../img/error.jpg);
   background-size: cover;
