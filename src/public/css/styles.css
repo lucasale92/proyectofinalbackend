@@ -10,14 +10,12 @@ a {
   color: #333;
 }
 p {
-  font-size: 16px; /* Tamaño de fuente */
-  line-height: 1.5; /* Espaciado entre líneas */
-  margin: 10px 0; /* Márgenes superior e inferior */
-  color: #333; /* Color del texto */
-  text-align: left; /* Alineación del texto (left, center, right, justify) */
-  font-weight: normal; /* Grosor de la fuente (normal, bold, lighter, etc.) */
-  font-style: normal; /* Estilo de fuente (normal, italic) */
-  text-decoration: none; /* Decoración de texto (none, underline, overline, line-through) */
+  font-size: 16px; 
+  line-height: 1.5; 
+  margin: 10px 0; 
+  color: #333; 
+  text-align: center; 
+  font-weight: 300; 
 }
 
 /*Banner*/
