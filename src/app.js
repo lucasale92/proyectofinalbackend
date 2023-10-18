@@ -39,7 +39,7 @@ const httpServer = app.listen(port, () => {
   console.log(`💪 App listening on port 🆙  ${port}`);
 });
 
-/* Connet to Mongo */
+/* Connect to Mongo */
 connectMongo();
 
 /* Cookies */
