@@ -282,6 +282,17 @@ a {
   text-align: center;
   margin-bottom: 1rem;
 }
+
+button:hover {
+  outline: none;
+  border: solid 2px #a30b13;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #a30b13;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .info-childsbutton button:hover {
   outline: none;
   border: solid 2px #44ce92;
