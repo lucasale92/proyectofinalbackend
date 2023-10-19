@@ -421,48 +421,51 @@ p {
   margin: 3rem 1rem;
 }
 #products-list {
-  margin: 6rem;
+  margin: 2rem;
 }
 
 .card {
   background-color: #00663a75;
   border-radius: 15px;
   width: 15rem;
-  padding: 2rem;
   margin: 3rem 1rem;
+  display: flex; /* Utilizar flexbox para controlar el diseño */
+  flex-direction: column; /* Alinear elementos verticalmente */
+  align-items: center; /* Centrar elementos horizontalmente */
+  padding: 1rem; /* Reducir el espacio interior de la tarjeta */
 }
 
 .card img {
-  width: 100%; /* Ajusta el ancho de la imagen al 100% del card */
+  max-width: 100%; /* Evitar que la imagen se estire más allá de su tamaño original */
+  height: auto; /* Mantener la relación de aspecto original */
   border-radius: 15px; /* Borde redondeado para la imagen */
 }
 
 .card .card-body {
-  text-align: center; /* Centra el contenido del card-body */
+  text-align: center; /* Centrar el contenido del card-body */
 }
 
 .card h5.card-title {
   color: white; /* Color del título */
   font-size: 1.5rem; /* Tamaño de fuente del título */
+  margin: 0.5rem 0; /* Espacio entre el título y el texto */
 }
 
 .card p.card-text {
   color: #fff; /* Color del texto del card */
+  margin: 0.5rem 0; /* Espacio entre párrafos */
 }
 
 .card ul {
-  list-style: none; /* Quita las viñetas de la lista */
+  list-style: none; /* Quitar las viñetas de la lista */
   padding: 0;
 }
 
 .card ul li {
   color: #fff; /* Color del texto de la lista */
-  margin: 0.5rem 0; /* Espaciado entre elementos de la lista */
+  margin: 0.2rem 0; /* Espaciado entre elementos de la lista */
 }
 
-ul {
-  list-style-type: none;
-}
 
 /*Lista-productos-home*/
 .lista-productos-home {
