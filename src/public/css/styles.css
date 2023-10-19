@@ -433,7 +433,7 @@ p {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-
+}
 .card img {
   max-width: 100%; /* Evitar que la imagen se estire más allá de su tamaño original */
   height: auto; /* Mantener la relación de aspecto original */
