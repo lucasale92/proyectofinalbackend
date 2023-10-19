@@ -428,15 +428,11 @@ p {
   background-color: #00663a75;
   border-radius: 15px;
   width: 15rem;
-  margin: 3rem auto; /* Margen superior e inferior en 3rem y centrar horizontalmente con "auto" */
+  margin: 6rem auto; /* Margen superior e inferior en 6rem y centrar horizontalmente con "auto" */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  position: relative; /* Posición relativa para controlar el posicionamiento */
-  top: 50%; /* Mover la tarjeta hacia abajo un 50% de la altura del contenedor padre */
-  transform: translateY(-50%); /* Mover la tarjeta hacia arriba un 50% de su propia altura */
-}
 
 .card img {
   max-width: 100%; /* Evitar que la imagen se estire más allá de su tamaño original */
