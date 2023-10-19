@@ -161,7 +161,6 @@ p {
   transition: all 1s ease;
   margin: 10px;
   background-color: #b61212cc;
-  color: #fff;
 }
 
 .information {
@@ -186,7 +185,7 @@ p {
 
 .info-childs p {
   margin: 15px 0;
-  color: #555;
+  color: #ffffff;
 }
 
 .info-childs input {
