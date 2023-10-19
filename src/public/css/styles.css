@@ -3,6 +3,13 @@
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+body{
+  background-image: url(../img/fondosvg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center ;
+}
 /*login*/
 
 /* Aplicamos un estilo general a todo el formulario de inicio de sesión y registro */
@@ -108,13 +115,6 @@ a {
   color: #333;
 }
 
-.fondo {
-  background-image: url(../img/fondosvg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center ;
-}
 
 p {
   font-size: 16px; 
