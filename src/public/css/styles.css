@@ -112,7 +112,7 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center center;
+  background-position: center ;
 }
 
 p {
@@ -476,8 +476,6 @@ p {
 
 #products-list {
   margin: 6rem;
-  background-color: purple;
-
 }
 
 .botones-home-usuario-carro {
